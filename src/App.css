@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+/* Style guide
+  Colors:
+    #EDEFEE - Background
+    #49SE57 - Primary
+    #F4CE14 - Secondary
+    #333333 - Dark
+    #FBDABB - Orange
+    #EE9972 - Orange 2
+  Typography:
+    Font - "Markazi Text"
+    Paragraph text font - "Karla"
+    Heading - 64pt
+    Regular - 40pt
+    Section Title - UPPERCASE 20pt EXTRA BOLD
+    Card Title - 18pt Bold
+    Highlight text e.g. price - 16pt
+    Paragraph text - 16pt 1.5 line height Max 65 characters per line.
+    Rounded corners - 16px
+*/
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Markazi Text', 'Karla', serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Body */
+body {
+  background-color: #edefee;
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Nav */
+.nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.nav ul {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+  padding-right: 5rem;
+  margin: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Footer */
+.footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0px;
+  justify-items: center;
+  margin: auto;
+  width: 100%;
+  padding: 20px;
+}
+
+.footer img {
+  align-self: center;
 }
