@@ -1,26 +1,26 @@
 /* Style guide
-  Colors:
-    #EDEFEE - Background
-    #49SE57 - Primary
-    #F4CE14 - Secondary
-    #333333 - Dark
-    #FBDABB - Orange
-    #EE9972 - Orange 2
-  Typography:
-    Font - "Markazi Text"
-    Paragraph text font - "Karla"
-    Heading - 64pt
-    Regular - 40pt
-    Section Title - UPPERCASE 20pt EXTRA BOLD
-    Card Title - 18pt Bold
-    Highlight text e.g. price - 16pt
-    Paragraph text - 16pt 1.5 line height Max 65 characters per line.
+Colors:
+#EDEFEE - Background
+#495E57 - Primary
+#F4CE14 - Secondary
+#333333 - Dark
+#FBDABB - Orange
+#EE9972 - Orange 2
+Typography:
+Font - "Markazi Text"
+Paragraph text font - "Karla"
+Heading - 64pt
+Regular - 40pt
+Section Title - UPPERCASE 20pt EXTRA BOLD
+Card Title - 18pt Bold
+Highlight text e.g. price - 16pt
+Paragraph text - 16pt 1.5 line height Max 65 characters per line.
     Rounded corners - 16px
-*/
+    */
 
-/* Reset */
-* {
-  margin: 0;
+    /* Reset */
+    * {
+  margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Markazi Text', 'Karla', serif;
@@ -35,15 +35,20 @@ body {
   font-weight: 400;
 }
 
+.container {
+  max-width: 960px;
+}
+
 /* Nav */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: bold;
   margin: auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
   width: 100%;
+  max-width: 960px;
 }
 
 .nav ul {
@@ -55,6 +60,48 @@ body {
   width: 75%;
   padding-right: 5rem;
   margin: auto;
+}
+
+/* Header */
+.header {
+  margin: auto;
+  width: 100%;
+  padding: 20px;
+  background-color: #495E57;
+  color: #EDEFEE;
+}
+
+.header h1 {
+  color: #F4CE14;
+}
+
+.button {
+  background-color: #F4CE14;
+  color: #495E57;
+  border: none;
+  border-radius: 16px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.header-body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0px;
+  margin: auto;
+  width: 100%;
+  padding: 20px;
+}
+
+.header-body img {
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 /* Footer */
