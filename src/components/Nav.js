@@ -2,7 +2,7 @@ import logo from '../assets/icons_assets/Logo.svg'
 
 function Nav() {
   return (
-    <nav className='nav'>
+    <nav className='nav container'>
       <img src={logo} alt='logo'/>
       <ul>
         <li>Home</li>

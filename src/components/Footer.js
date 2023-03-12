@@ -2,7 +2,7 @@ import logo from '../assets/icons_assets/Logo.svg';
 
 function Footer() {
   return (
-    <footer className='footer'>
+    <footer className='footer container'>
       <img src={logo} alt='logo' />
       <section>
         <h3>Menu</h3>
