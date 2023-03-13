@@ -1,4 +1,5 @@
 import logo from '../assets/icons_assets/Logo.svg';
+import { NavLink } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -7,8 +8,12 @@ function Footer() {
       <section>
         <h3>Menu</h3>
         <ul>
-          <li>Home</li>
-          <li>About</li>
+          <li>
+            <NavLink to='/'>Home</NavLink>
+          </li>
+          <li>
+            <NavLink to='/about'>About</NavLink>
+          </li>
           <li>Menu</li>
           <li>Reservations</li>
           <li>Order Online</li>

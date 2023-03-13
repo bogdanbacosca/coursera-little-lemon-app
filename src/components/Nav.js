@@ -1,12 +1,17 @@
-import logo from '../assets/icons_assets/Logo.svg'
+import logo from '../assets/icons_assets/Logo.svg';
+import { NavLink } from 'react-router-dom';
 
 function Nav() {
   return (
     <nav className='nav container'>
-      <img src={logo} alt='logo'/>
+      <img src={logo} alt='logo' />
       <ul>
-        <li>Home</li>
-        <li>About</li>
+        <li>
+          <NavLink to='/'>Home</NavLink>
+        </li>
+        <li>
+          <NavLink to='/about'>About</NavLink>
+        </li>
         <li>Menu</li>
         <li>Reservations</li>
         <li>Order Online</li>

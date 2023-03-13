@@ -1,4 +1,4 @@
-import header from '../assets/icons_assets/restauranfood.jpg';
+import header from '../assets/restauranfood.jpg';
 
 function Header() {
   return (
