@@ -1,5 +1,5 @@
 import logo from '../assets/icons_assets/Logo.svg';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -15,7 +15,9 @@ function Footer() {
             <NavLink to='/about'>About</NavLink>
           </li>
           <li>Menu</li>
-          <li>Reservations</li>
+          <li>
+            <NavLink to='booking'>Reservations</NavLink>
+          </li>
           <li>Order Online</li>
           <li>Login</li>
         </ul>

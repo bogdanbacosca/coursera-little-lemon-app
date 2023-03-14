@@ -13,7 +13,9 @@ function Nav() {
           <NavLink to='/about'>About</NavLink>
         </li>
         <li>Menu</li>
-        <li>Reservations</li>
+        <li>
+          <NavLink to='/booking'>Reservations</NavLink>
+        </li>
         <li>Order Online</li>
         <li>Login</li>
       </ul>
