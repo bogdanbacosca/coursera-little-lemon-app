@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/BookingForm.css';
 
-function BookingForm() {
+function BookingForm({ dispatch, availableTimes }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState('');
@@ -9,8 +9,15 @@ function BookingForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(date, time, guests, occasion);
+    dispatch({ type: 'UPDATE_DATE', payload: date });
+    dispatch({ type: 'UPDATE_TIME', payload: time });
   };
+
+  useEffect(() => {
+    if (availableTimes) {
+      setTime(availableTimes[0]);
+    }
+  }, [availableTimes]);
 
   return (
     <>
@@ -22,6 +29,9 @@ function BookingForm() {
           id='date'
           name='date'
           value={date}
+          onSubmit={(e) =>
+            dispatch({ type: 'UPDATE_DATE', payload: e.target.value })
+          }
           onChange={(e) => setDate(e.target.value)}
         />
         <label htmlFor='time'>Time</label>
@@ -30,14 +40,18 @@ function BookingForm() {
           id='time'
           name='time'
           value={time}
+          onSubmit={(e) =>
+            dispatch({ type: 'UPDATE_TIME', payload: e.target.value })
+          }
           onChange={(e) => setTime(e.target.value)}
         >
-          <option value='12:00'>12:00</option>
-          <option value='12:30'>12:30</option>
-          <option value='13:00'>13:00</option>
-          <option value='13:30'>13:30</option>
-          <option value='14:00'>14:00</option>
-          <option value='14:30'>14:30</option>
+          {availableTimes.map((time) => {
+            return (
+              <option value={time} key={time}>
+                {time}
+              </option>
+            );
+          })}
         </select>
         <label htmlFor='guests'>Number of guests</label>
         <input
