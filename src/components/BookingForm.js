@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/BookingForm.css';
+import { fetchAPI, submitAPI } from '../data/api';
 
-function BookingForm({ dispatch, availableTimes }) {
+function BookingForm({ dispatch }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState('');
@@ -9,15 +10,14 @@ function BookingForm({ dispatch, availableTimes }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: 'UPDATE_DATE', payload: date });
-    dispatch({ type: 'UPDATE_TIME', payload: time });
+    dispatch({ type: 'UPDATE_DATE', date: date });
+    dispatch({ type: 'UPDATE_TIME', time: time });
+    submitAPI(date, time, guests, occasion);
+    setDate('');
+    setTime('');
+    setGuests('');
+    setOccasion('');
   };
-
-  useEffect(() => {
-    if (availableTimes) {
-      setTime(availableTimes[0]);
-    }
-  }, [availableTimes]);
 
   return (
     <>
@@ -30,7 +30,7 @@ function BookingForm({ dispatch, availableTimes }) {
           name='date'
           value={date}
           onSubmit={(e) =>
-            dispatch({ type: 'UPDATE_DATE', payload: e.target.value })
+            dispatch({ type: 'UPDATE_DATE', date: e.target.value })
           }
           onChange={(e) => setDate(e.target.value)}
         />
@@ -41,17 +41,14 @@ function BookingForm({ dispatch, availableTimes }) {
           name='time'
           value={time}
           onSubmit={(e) =>
-            dispatch({ type: 'UPDATE_TIME', payload: e.target.value })
+            dispatch({ type: 'UPDATE_TIME', time: e.target.value })
           }
           onChange={(e) => setTime(e.target.value)}
         >
-          {availableTimes.map((time) => {
-            return (
-              <option value={time} key={time}>
-                {time}
-              </option>
-            );
-          })}
+          <option value=''>Select a time</option>
+          {fetchAPI(date).map((time) => (
+            <option value={time}>{time}</option>
+          ))}
         </select>
         <label htmlFor='guests'>Number of guests</label>
         <input
