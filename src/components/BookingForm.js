@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/BookingForm.css';
-import { fetchAPI, submitAPI } from '../data/api';
+import { fetchAPI } from '../data/api';
 
-function BookingForm({ dispatch }) {
+function BookingForm({ dispatch, submitForm }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState('');
@@ -12,7 +12,7 @@ function BookingForm({ dispatch }) {
     e.preventDefault();
     dispatch({ type: 'UPDATE_DATE', date: date });
     dispatch({ type: 'UPDATE_TIME', time: time });
-    submitAPI(date, time, guests, occasion);
+    submitForm(date, time, guests, occasion);
     setDate('');
     setTime('');
     setGuests('');

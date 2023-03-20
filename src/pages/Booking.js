@@ -3,9 +3,12 @@ import Footer from '../components/Footer';
 import BookingForm from '../components/BookingForm';
 import '../App.css';
 import { useReducer } from 'react';
+import { submitAPI } from '../data/api';
+import { useNavigate } from "react-router-dom";
 
 function Booking() {
   const [getTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+  const navigate = useNavigate();
 
   function initializeTimes() {
     return [
@@ -55,11 +58,16 @@ function Booking() {
     }
   }
 
+  function submitForm(formData) {
+    console.log('submitForm', formData);
+    submitAPI(formData) === true ? navigate('/confirmation') : console.log('error');
+    }
+
   return (
     <>
       <Nav />
       <section className='container'>
-        <BookingForm dispatch={dispatch} />
+        <BookingForm dispatch={dispatch} submitForm={submitForm} />
       </section>
       <Footer />
     </>
