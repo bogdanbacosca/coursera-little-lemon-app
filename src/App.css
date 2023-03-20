@@ -64,6 +64,11 @@ body {
   cursor: pointer;
 }
 
+.disabled {
+  color: #333333;
+  opacity: 0.5;
+}
+
 /* Nav */
 .nav {
   display: flex;
@@ -92,6 +97,7 @@ body {
 .active {
   border-bottom: 2px solid #f4ce14;
 }
+
 
 /* Header */
 .header {

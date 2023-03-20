@@ -33,6 +33,7 @@ function BookingForm({ dispatch, submitForm }) {
             dispatch({ type: 'UPDATE_DATE', date: e.target.value })
           }
           onChange={(e) => setDate(e.target.value)}
+          required={true}
         />
         <label htmlFor='time'>Time</label>
         <select
@@ -44,6 +45,7 @@ function BookingForm({ dispatch, submitForm }) {
             dispatch({ type: 'UPDATE_TIME', time: e.target.value })
           }
           onChange={(e) => setTime(e.target.value)}
+          required={true}
         >
           <option value=''>Select a time</option>
           {fetchAPI(date).map((time) => (
@@ -59,6 +61,7 @@ function BookingForm({ dispatch, submitForm }) {
           placeholder='1'
           min='1'
           max='10'
+          required={true}
           onChange={(e) => setGuests(e.target.value)}
         />
         <label htmlFor='occasion'>Occasion</label>
@@ -67,12 +70,22 @@ function BookingForm({ dispatch, submitForm }) {
           name='occasion'
           value={occasion}
           onChange={(e) => setOccasion(e.target.value)}
+          required={true}
         >
+          <option value=''>Select occasion</option>
           <option value='Birthday'>Birthday</option>
           <option value='Anniversary'>Anniversary</option>
           <option value='Other'>Other</option>
         </select>
-        <button type='submit'>Submit reservation</button>
+        {date && time && guests && occasion ? (
+          <button type='submit' disabled={false}>
+            Submit reservation
+          </button>
+        ) : (
+          <button type='submit' className='disabled' disabled={true}>
+            Submit reservation
+          </button>
+        )}
       </form>
     </>
   );
