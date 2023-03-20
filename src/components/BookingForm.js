@@ -78,7 +78,7 @@ function BookingForm({ dispatch, submitForm }) {
           <option value='Other'>Other</option>
         </select>
         {date && time && guests && occasion ? (
-          <button type='submit' disabled={false}>
+          <button type='submit' aria-label='On Click' disabled={false}>
             Submit reservation
           </button>
         ) : (
