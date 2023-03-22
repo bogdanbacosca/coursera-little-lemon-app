@@ -58,7 +58,7 @@ function BookingForm({ dispatch, submitForm }) {
           id='guests'
           name='guests'
           value={guests}
-          placeholder='1'
+          placeholder='Max 10'
           min='1'
           max='10'
           required={true}

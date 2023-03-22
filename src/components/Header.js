@@ -1,4 +1,5 @@
 import header from '../assets/restauranfood.jpg';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -12,7 +13,9 @@ function Header() {
             traditional recipes served with a modern twist.
           </p>
           <br />
-          <button className='button'>Reserve a Table</button>
+          <Link to='/booking'>
+            <button className='button'>Reserve a Table</button>
+          </Link>
         </section>
         <img src={header} alt='header' height='250px' width='250px' />
       </div>
